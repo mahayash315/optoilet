@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Toilet = sequelize.define('Toilet', {
     floor: DataTypes.INTEGER,
     gender: DataTypes.STRING,
-    pending_requests: {
+    pendingRequests: {
       type: DataTypes.INTEGER,
       defaultValue: 0
     }

@@ -14,7 +14,7 @@ module.exports = {
       gender: {
         type: Sequelize.STRING
       },
-      pending_requests: {
+      pendingRequests: {
         type: Sequelize.INTEGER,
         defaultValue: 0
       },
