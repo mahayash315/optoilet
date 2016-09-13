@@ -8,7 +8,7 @@ router.post('/', function(req, res, next) {
   console.log(req.body);
   models.Room.create({
     ToiletId: req.body.ToiletId,
-    locked: req.body.locked || false
+    locked: (req.body.locked !== undefined) ? req.body.locked : room.locked
   }).then(function(room) {
     res.json(room);
   });
@@ -42,9 +42,9 @@ router.put('/:id(\\d+)', function(req, res, next) {
     if (room) {
       room.updateAttributes({
         ToiletId: req.body.ToiletId || room.ToiletId,
-        locked: req.body.locked || room.locked
+        locked: (req.body.locked !== undefined) ? req.body.locked : room.locked
       }).then (function (room) {
-        req.json(room);
+        res.json(room);
       })
     }
   });

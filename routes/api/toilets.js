@@ -53,7 +53,7 @@ router.put('/:id(\\d+)', function(req, res, next) {
         gender: req.body.gender || toilet.gender,
         pendingRequests: req.body.pendingRequests || toilet.pendingRequests
       }).then (function (toilet) {
-        req.json(toilet);
+        res.json(toilet);
       })
     }
   });
