@@ -49,11 +49,48 @@ var vm = new Vue({
             url: '//localhost:3000/api/toilets'
         })
         .done(function(data) {
-            vm.toilets = data;
+            vm.toilets = data
+                .filter(function (toilet) { return (toilet.gender === 'male'); })
+                .reverse();
+            var getUrlVars = function() {
+                var vars = [], max = 0, hash = "", array = "";
+                var url = window.location.search;
+                hash  = url.slice(1).split('&');
+                max = hash.length;
+                for (var i = 0; i < max; i++) {
+                    array = hash[i].split('=');
+                    vars.push(array[0]);
+                    vars[array[0]] = array[1];
+                }
+                return vars;
+            };
+            args = getUrlVars();
+            var cf = args.currentFloor;
+            console.log('cf', cf);
+            if (cf) {
+                var idx = -1;
+                $.each(vm.toilets, function(i, toilet) {
+                    console.log(toilet);
+                    if (toilet.floor == cf) {
+                        idx = toilet.id;
+                    }
+                });
+                console.log('idx', idx);
+                if (idx !== -1) {
+                    setTimeout(function() {
+                        $("html,body").animate({
+                            scrollTop: $('#heading-'+idx).offset().top - 240
+                        });
+                        $('#heading-'+idx).parent().addClass('panel-info');
+                    }, 100);
+                }
+            }
         })
         .fail(function() {
             alert('load failed');
         });
+    },
+    ready: function() {
     },
     methods: {
         used: function(toilet) {
