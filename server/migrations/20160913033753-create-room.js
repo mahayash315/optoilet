@@ -14,9 +14,6 @@ module.exports = {
       locked: {
         type: Sequelize.BOOLEAN
       },
-      updated_at: {
-        type: Sequelize.TIME
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
