@@ -28,6 +28,12 @@ GET http://localhost:3000/api/toilets/search?current_floor=1&gender=female
 $ npm install
 ```
 
+## create database
+```
+$ mysql -u root
+mysql> create database `optoilet_development` 
+```
+
 ## database migration
 ```
 $ npm run sync
