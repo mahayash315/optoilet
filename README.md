@@ -30,6 +30,7 @@ $ npm install
 
 ## create database
 ```
+$ sudo mysql.server start
 $ mysql -u root
 mysql> create database `optoilet_development` 
 ```
