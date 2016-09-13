@@ -66,7 +66,6 @@ var vm = new Vue({
             };
             args = getUrlVars();
             var cf = args.currentFloor;
-            console.log('cf', cf);
             if (cf) {
                 var idx = -1;
                 $.each(vm.toilets, function(i, toilet) {
@@ -75,7 +74,6 @@ var vm = new Vue({
                         idx = toilet.id;
                     }
                 });
-                console.log('idx', idx);
                 if (idx !== -1) {
                     setTimeout(function() {
                         $("html,body").animate({
