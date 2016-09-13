@@ -74,9 +74,47 @@ router.delete('/:id(\\d+)', function(req, res, next) {
 
 
 //===== BUSINESS ==============================================================
+
+// pend 独立ビジネスロジック
+function pendToilet(toilet) {
+  return toilet.updateAttributes({
+    pendingRequests: toilet.pendingRequests + 1
+  });
+}
+function unpendToilet(toilet) {
+  return toilet.updateAttributes({
+    pendingRequests: toilet.pendingRequests - 1
+  });
+}
+
 /* Pend a single toilet */
 router.post('/:id(\\d+)/pend', function(req, res, next) {
-  res.json("{}");
+  models.Toilet.find({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(toilet) {
+    if (toilet) {
+      pendToilet(toilet).then(function(toilet) {
+        res.json(toilet);
+      });
+    }
+  });
+});
+
+/* Unpend a single toilet */
+router.delete('/:id(\\d+)/pend', function(req, res, next) {
+  models.Toilet.find({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(toilet) {
+    if (toilet) {
+      unpendToilet(toilet).then(function(toilet) {
+        res.json(toilet);
+      });
+    }
+  });
 });
 
 /* Search toilets */
@@ -86,7 +124,7 @@ router.get('/search', function(req, res, next) {
   if (!req.query.gender) throw new Error("Missing query parameter 'gender'");
 
   // search
-  search(req.query.current_floor, req.query.gender).then(function (result) {
+  search(req.query.gender, req.query.current_floor, req.query.direction).then(function (result) {
     res.json(result);
   });
 });
