@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET a single toilet */
-router.get('/:id', function(req, res, next) {
+router.get('/:id(\\d+)', function(req, res, next) {
   models.Toilet.find({
     where: {
       id: req.params.id
