@@ -40,5 +40,9 @@ mysql> create database `optoilet_development`
 $ npm run sync
 ```
 
+## start server
+```
+$ npm run start
+```
 
 
