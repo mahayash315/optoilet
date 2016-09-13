@@ -32,6 +32,15 @@
                         <option value="5">5階</option><option value="4">4階</option><option value="3">3階</option><option value="2">2階</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">行きたい方向</label><br />
+                    <div class="btn-group btn-group-lg" role="group" aria-label="..." id="dirgr">
+                        <button type="button" class="btn btn-default" onClick="$('#direction').val('-1'); $('#dirgr button').removeClass('btn-info').eq(0).addClass('btn-info');">↓</button>
+                        <button type="button" class="btn btn-default" onClick="$('#direction').val('0'); $('#dirgr button').removeClass('btn-info').eq(1).addClass('btn-info');">　・　</button>
+                        <button type="button" class="btn btn-default" onClick="$('#direction').val('1'); $('#dirgr button').removeClass('btn-info').eq(2).addClass('btn-info');">↑</button>
+                    </div>
+                </div>
+                <input type="hidden" id="direction" name="direction" value="0" />
                 <button type="submit" class="btn btn-primary btn-lg btn-block">検索</button>
             </form>
         </div>

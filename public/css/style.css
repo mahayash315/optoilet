@@ -19,3 +19,7 @@ body {
 }
 .floor {
 }
+#dirgr button {
+    height: 100%;
+    font-size: 4em;
+}
