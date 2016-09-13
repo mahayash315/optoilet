@@ -16,8 +16,8 @@
             </div>
         </nav>
         <div class="container">
-            <div id="list" class="panel-group floors" role="tablist" aria-multiselectable="true">
-                <div v-for="toilet in toilets" class="panel panel-default">
+            <div id="list" class="panel-group floors" role="tablist" aria-multiselectable="true" v-bind:class="{'in-search': inSearch}">
+                <div v-for="toilet in toilets" class="panel panel-default" v-bind:class="{'sug1': costs[toilet.id] < 10, 'sug2': 10 <= costs[toilet.id] && costs[toilet.id] < 40}">
                     <div class="panel-heading" role="tab" id="heading-{{toilet.id}}">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{toilet.id}}" aria-expanded="false" aria-controls="collapse-{{toilet.id}}">
                             <h4 class="panel-title" style="float: left;">
