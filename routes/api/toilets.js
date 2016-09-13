@@ -76,7 +76,7 @@ router.delete('/:id(\\d+)', function(req, res, next) {
 //===== BUSINESS ==============================================================
 /* Pend a single toilet */
 router.post('/:id(\\d+)/pend', function(req, res, next) {
-  req.json("{}");
+  res.json("{}");
 });
 
 /* Search toilets */
