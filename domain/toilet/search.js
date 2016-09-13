@@ -42,15 +42,15 @@ var search = function(gender, currentFloor, direction) {
     }).then(function(toilets) {
 
         // 各トイレの最適度を評価する
-        var evals = toilets.map(function(toilet) {
-            return {
-                id: toilet.id,
-                toilet: toilet,
-                cost: cost(toilet, currentFloor, direction)
-            };
+        var costs = {};
+        toilets.forEach(function(toilet) {
+            costs[toilet.id] = cost(toilet, currentFloor, direction);
         });
 
-        return evals;
+        return {
+            toilets: toilets,
+            costs: costs
+        };
     });
 };
 
