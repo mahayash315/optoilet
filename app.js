@@ -8,6 +8,7 @@ var mysql = require('mysql');
 
 var routes = require('./routes/index');
 var api_toilets = require('./routes/api/toilets');
+var api_rooms = require('./routes/api/rooms');
 
 var app = express();
 
@@ -27,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api/toilets', api_toilets);
-
+app.use('/api/rooms', api_rooms);
 
 // ================== ERROR HANDLER ====================
 // catch 404 and forward to error handler
