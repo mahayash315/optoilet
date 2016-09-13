@@ -71,6 +71,7 @@ var vm = new Vue({
                 url: '//localhost:3000/api/toilets/search',
                 data: {
                     current_floor: cf,
+                    gender: 'male',
                     direction: dir
                 }
             })
