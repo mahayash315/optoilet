@@ -49,15 +49,11 @@ var vm = new Vue({
             url: '//localhost:3000/api/toilets'
         })
         .done(function(data) {
-            vm.toilets = data;
+            this.toilets = data;
         })
         .fail(function() {
             alert('load failed');
         });
-    },
-    ready: function() {
-        console.log('');
-        $('.collapse').collapse('hide');
     },
     methods: {
         used: function(toilet) {
