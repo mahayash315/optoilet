@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET a single toilet */
-router.get('/:id', function(req, res, next) {
+router.get('/:id(\\d+)', function(req, res, next) {
   models.Room.find({
     where: {
       id: req.params.id
@@ -33,7 +33,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* UPDATE a toilet */
-router.put('/:id', function(req, res, next) {
+router.put('/:id(\\d+)', function(req, res, next) {
   models.Room.find({
     where: {
       id: req.params.id
@@ -51,7 +51,7 @@ router.put('/:id', function(req, res, next) {
 });
 
 /* DELETE a single toilet */
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id(\\d+)', function(req, res, next) {
   models.Room.destroy({
     where: {
       id: req.params.id

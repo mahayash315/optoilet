@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var models = require('../server/models');
+var fixture = require('../test/fixture');
+
+models.sequelize.sync({
+    force: true,
+    logging: console.log
+})
+.then(function () {
+    return fixture(models)
+})
+.then(function () {
+    return models.sequelize.close()
+});
