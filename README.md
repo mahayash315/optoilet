@@ -46,3 +46,9 @@ $ npm run start
 ```
 
 
+# 2. Demo bot
+
+## run bot
+```
+$ node demo-bot.js
+```
