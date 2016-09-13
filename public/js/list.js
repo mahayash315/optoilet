@@ -148,6 +148,7 @@ var vm = new Vue({
             var r = s - u;
             var p = toilet.pendingRequests;
 
+            if (r == 0) return false;
             return (r > p);
         },
         toBin: function(toilet) {
