@@ -51,6 +51,16 @@ function pendToilet(toilet, callback) {
         })
 }
 
+function unpendToilet(toilet, callback) {
+    // pend
+    return request
+        .delete(baseUrl+'/api/toilets/'+toilet.id+'/pend')
+        .end(function(err, res) {
+            if (err) console.error(err.message);
+            callback();
+        })
+}
+
 
 
 var Agent = function(name, gender) {
@@ -101,9 +111,11 @@ Agent.prototype.leaveToilet = function(callback) {
                 callback();
             })
         } else {
-            console.log(self.name + ' left toilet ' + self.toilet.id);
-            self.toilet = null;
-            callback();
+            unpendToilet(this.toilet, function() {
+                console.log(self.name + ' left toilet ' + self.toilet.id);
+                self.toilet = null;
+                callback();
+            });
         }
     } else {
         callback();
