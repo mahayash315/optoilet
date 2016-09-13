@@ -49,7 +49,7 @@ var vm = new Vue({
             url: '//localhost:3000/api/toilets'
         })
         .done(function(data) {
-            this.toilets = data;
+            vm.toilets = data;
         })
         .fail(function() {
             alert('load failed');
@@ -62,6 +62,22 @@ var vm = new Vue({
                 if (room.locked) u += 1;
             });
             return u;
+        },
+        smooth: function(toilet) {
+            var u = this.used(toilet);
+            var s = toilet.Rooms.length;
+
+            var r = s - u;
+            var p = toilet.pendingRequests;
+
+            return (r > p);
+        },
+        toBin: function(toilet) {
+            var s = '';
+            $.each(toilet.Rooms, function(i, room) {
+                s += (room.locked) ? '1' : '0';
+            });
+            return s;
         },
         reserve: function(id) {
             var $e = $('#collapse-' + id + ' button');
@@ -80,4 +96,7 @@ var vm = new Vue({
             });
         }
     }
+});
+Vue.filter('male', function(toilet) {
+    return toilet.gender === 'male';
 });
