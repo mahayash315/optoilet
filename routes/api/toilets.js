@@ -124,7 +124,7 @@ router.get('/search', function(req, res, next) {
   if (!req.query.gender) throw new Error("Missing query parameter 'gender'");
 
   // search
-  search(req.query.current_floor, req.query.gender).then(function (result) {
+  search(req.query.gender, req.query.current_floor, req.query.direction).then(function (result) {
     res.json(result);
   });
 });
