@@ -49,7 +49,9 @@ var vm = new Vue({
             url: '//localhost:3000/api/toilets'
         })
         .done(function(data) {
-            vm.toilets = data;
+            vm.toilets = data
+                .filter(function (toilet) { return (toilet.gender === 'male'); })
+                .reverse();
         })
         .fail(function() {
             alert('load failed');

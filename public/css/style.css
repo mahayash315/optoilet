@@ -10,6 +10,10 @@ body {
 .search-form {
     margin: 2em 0;
 }
+.form-floor {
+    height: 100%;
+    font-size: 4em;
+}
 .floors {
     margin: 2em 0;
 }
