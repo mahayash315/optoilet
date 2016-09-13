@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>最適トイレ検索</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">最適トイレ検索</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <form class="search-form">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">現在の階数</label>
+                    <select class="form-control" id="currentFloor">
+                        <option>41階</option><option>40階</option><option>39階</option><option>38階</option>
+                        <option>37階</option><option>36階</option><option>35階</option><option>34階</option>
+                        <option>33階</option><option>32階</option><option>31階</option><option>30階</option>
+                        <option>29階</option><option>28階</option><option>27階</option><option>26階</option>
+                        <option>25階</option><option>24階</option><option>23階</option><option>22階</option>
+                        <option>21階</option><option>20階</option><option>19階</option><option>18階</option>
+                        <option>17階</option><option>16階</option><option>15階</option><option>14階</option>
+                        <option>13階</option><option>12階</option><option>11階</option><option>10階</option>
+                        <option>9階</option><option>8階</option><option>7階</option><option>6階</option>
+                        <option>5階</option><option>4階</option><option>3階</option><option>2階</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default">検索</button>
+            </form>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
+
